@@ -10,14 +10,14 @@
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Portafolio
+                PROYECTOS
               </a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Proyecto 1</a></li>
+                <li><a class="dropdown-item" href="#">Api Clima</a></li>
                 <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#">Proyecto 2</a></li>
+                <li><a class="dropdown-item" href="#">Catálogo Vinóloga</a></li>
                 <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#">Proyecto 3</a></li>
+                <li><a class="dropdown-item" href="#">Captador Base de Datos</a></li>
               </ul>
             </li>
             
