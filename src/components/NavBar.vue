@@ -14,6 +14,7 @@
               </a>
               <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="#">Proyecto 1</a></li>
+                <li><hr class="dropdown-divider"></li>
                 <li><a class="dropdown-item" href="#">Proyecto 2</a></li>
                 <li><hr class="dropdown-divider"></li>
                 <li><a class="dropdown-item" href="#">Proyecto 3</a></li>
