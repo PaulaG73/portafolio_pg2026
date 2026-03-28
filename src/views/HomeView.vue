@@ -17,21 +17,32 @@
     <h3 class="mb-4 fw-bold">Habilidades/Conocimientos</h3>
 
     <div class="container">
-      <div class="row row-cols-3 g-3 g-md-4 justify-content-center">
-        <div v-for="h in habilidades" :key="h.name" class="col">
-          <div class="d-flex flex-column align-items-center text-center gap-2 py-2">
+      <Carousel
+        :items-to-show="1"
+        :breakpoints="carouselBreakpoints"
+        :wrap-around="true"
+        :transition="400"
+        snap-align="center"
+      >
+        <Slide v-for="h in habilidades" :key="h.name">
+          <div class="habilidad-slide d-flex flex-column align-items-center gap-2 py-3 px-2">
             <img
               :src="h.icon"
               :alt="h.name"
               class="habilidad-icon"
-              width="28"
-              height="28"
+              width="48"
+              height="48"
               loading="lazy"
             >
             <span class="small fw-semibold">{{ h.name }}</span>
           </div>
-        </div>
-      </div>
+        </Slide>
+
+        <template #addons>
+          <Navigation />
+          <Pagination />
+        </template>
+      </Carousel>
     </div>
   </section>
 
@@ -43,18 +54,25 @@
 
 import NavBar from '../components/NavBar'
 import FooterComponent from '../components/FooterComponent.vue'
+import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
+import 'vue3-carousel/dist/carousel.css'
 
 const habilidades = [
-  { name: 'HTML', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg' },
-  { name: 'CSS', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg' },
-  { name: 'JavaScript', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg' },
-  { name: 'Bootstrap', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original.svg' },
-  { name: 'Vue/VueRouter/Vuex', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vuejs/vuejs-original.svg' },
-  { name: 'Firebase', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/firebase/firebase-plain.svg' },
-  { name: 'GitHub', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg' },
-  { name: 'Netlify', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/netlify/netlify-original.svg' },
-  { name: 'Postman', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postman/postman-original.svg' },
+  { name: 'HTML',              icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg' },
+  { name: 'CSS',               icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg' },
+  { name: 'JavaScript',        icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg' },
+  { name: 'SASS',              icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/sass/sass-original.svg' },
+  { name: 'Bootstrap',         icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original.svg' },
+  { name: 'Vue',icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vuejs/vuejs-original.svg' },
+  { name: 'Firebase',          icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/firebase/firebase-plain.svg' },
+  { name: 'GitHub',            icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg' },
+  { name: 'Netlify',           icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/netlify/netlify-original.svg' },
+  { name: 'Postman',           icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postman/postman-original.svg' },
 ]
+
+const carouselBreakpoints = {
+  768: { itemsToShow: 3, snapAlign: 'center' },
+}
 
 </script>
 
@@ -97,9 +115,29 @@ const habilidades = [
   text-align: justify;
 }
 
+.habilidad-slide {
+  width: 100%;
+}
+
 .habilidad-icon {
-  width: 28px;
-  height: 28px;
+  width: 48px;
+  height: 48px;
   object-fit: contain;
+}
+
+:deep(.carousel__prev),
+:deep(.carousel__next) {
+  background-color: #198754;
+  border-radius: 50%;
+  color: #fff;
+}
+
+:deep(.carousel__prev:hover),
+:deep(.carousel__next:hover) {
+  background-color: #157347;
+}
+
+:deep(.carousel__dot--active) {
+  background-color: #198754;
 }
 </style>

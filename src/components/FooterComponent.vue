@@ -1,52 +1,87 @@
 <template>
-  <footer class="footer py-4 mt-auto d-flex flex-column align-items-center gap-3">
-    <p class="mb-0">Derechos reservados &copy; 2026 Paula Gajardo Schmidlin</p>
-    <div class="d-flex align-items-center justify-content-center gap-4">
-      <a
-        class="btn btn-success rounded-circle p-2 footer-action-btn shadow-sm"
-        :href="whatsappUrl"
-        target="_blank"
-        rel="noopener noreferrer"
-        :aria-disabled="!whatsappReady"
-        :class="{ 'opacity-50': !whatsappReady }"
-        :title="whatsappReady ? 'Contactar por WhatsApp' : 'Configura WHATSAPP_NUMBER_DIGITS en FooterComponent.vue'"
-        aria-label="Abrir chat de WhatsApp"
-      >
-        <svg
-          class="footer-action-icon"
-          xmlns="http://www.w3.org/2000/svg"
-          width="28"
-          height="28"
-          fill="currentColor"
-          viewBox="0 0 24 24"
-          aria-hidden="true"
+  <footer class="footer py-4 mt-auto">
+    <div class="container d-flex align-items-center">
+
+      <!-- Botón volver al inicio (izquierda, ancho fijo) -->
+      <div class="footer-side">
+        <button
+          type="button"
+          class="btn btn-dark rounded-circle p-2 footer-action-btn shadow-sm"
+          aria-label="Volver al inicio"
+          title="Volver al inicio"
+          @click="irAlInicio"
         >
-          <path
-            d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"
-          />
-        </svg>
-      </a>
-      <button
-        type="button"
-        class="btn btn-dark rounded-circle p-2 footer-action-btn shadow-sm"
-        aria-label="Volver al inicio"
-        title="Volver al inicio"
-        @click="irAlInicio"
-      >
-        <svg
-          class="footer-action-icon"
-          xmlns="http://www.w3.org/2000/svg"
-          width="28"
-          height="28"
-          fill="currentColor"
-          viewBox="0 0 16 16"
-          aria-hidden="true"
-        >
-          <path
-            d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146zM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5z"
-          />
-        </svg>
-      </button>
+          <svg
+            class="footer-action-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            width="28"
+            height="28"
+            fill="currentColor"
+            viewBox="0 0 16 16"
+            aria-hidden="true"
+          >
+            <path
+              d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146zM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5z"
+            />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Iconos sociales + copyright (centro) -->
+      <div class="flex-grow-1 d-flex flex-column align-items-center gap-2">
+        <div class="d-flex align-items-center gap-3">
+
+          <!-- WhatsApp -->
+          <a
+            class="btn btn-success rounded-circle p-2 footer-action-btn shadow-sm"
+            :href="whatsappUrl"
+            target="_blank"
+            rel="noopener noreferrer"
+            :aria-disabled="!whatsappReady"
+            :class="{ 'opacity-50': !whatsappReady }"
+            :title="whatsappReady ? 'Contactar por WhatsApp' : 'Configura WHATSAPP_NUMBER_DIGITS en FooterComponent.vue'"
+            aria-label="Abrir chat de WhatsApp"
+          >
+            <svg class="footer-action-icon" xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+          </a>
+
+          <!-- GitHub -->
+          <a
+            :href="githubUrl"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-dark rounded-circle p-2 footer-action-btn shadow-sm"
+            aria-label="Ver perfil de GitHub"
+            title="Ver perfil de GitHub"
+          >
+            <svg class="footer-action-icon" xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
+              <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+            </svg>
+          </a>
+
+          <!-- LinkedIn -->
+          <a
+            :href="linkedinUrl"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-primary rounded-circle p-2 footer-action-btn shadow-sm"
+            aria-label="Ver perfil de LinkedIn"
+            title="Ver perfil de LinkedIn"
+          >
+            <svg class="footer-action-icon" xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
+              <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/>
+            </svg>
+          </a>
+
+        </div>
+        <p class="mb-0 footer-copy">Derechos reservados &copy; 2026 Paula Gajardo Schmidlin</p>
+      </div>
+
+      <!-- Espacio equilibrante (derecha, mismo ancho que izquierda) -->
+      <div class="footer-side"></div>
+
     </div>
   </footer>
 </template>
@@ -58,6 +93,12 @@ import { useRouter } from 'vue-router'
 // ========== RELLENA AQUÍ ==========
 /** Solo dígitos: código de país + número (sin + ni espacios). Ej. Chile: 56912345678 */
 const WHATSAPP_NUMBER_DIGITS = '56996450950'
+
+/** URL completa de tu perfil de GitHub. Ej: 'https://github.com/tuusuario' */
+const GITHUB_URL = ''
+
+/** URL completa de tu perfil de LinkedIn. Ej: 'https://linkedin.com/in/tuusuario' */
+const LINKEDIN_URL = ''
 // ===================================
 
 const whatsappReady = computed(() => WHATSAPP_NUMBER_DIGITS.replace(/\D/g, '').length > 0)
@@ -67,6 +108,9 @@ const whatsappUrl = computed(() => {
   if (!digits) return '#'
   return `https://wa.me/${digits}`
 })
+
+const githubUrl = computed(() => GITHUB_URL || '#')
+const linkedinUrl = computed(() => LINKEDIN_URL || '#')
 
 const router = useRouter()
 
@@ -90,6 +134,15 @@ async function irAlInicio() {
 }
 
 .footer-action-icon {
+  flex-shrink: 0;
+}
+
+.footer-copy {
+  font-size: 0.85rem;
+}
+
+.footer-side {
+  width: 3rem;
   flex-shrink: 0;
 }
 </style>
