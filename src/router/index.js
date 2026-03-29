@@ -7,12 +7,6 @@ const routes = [
     name: 'home',
     component: HomeView
   },
-  {
-    path: '/VistaDetalleProyectos',
-    name: 'VistaDetalleProyectos',
-    
-    component: () => import('../views/VistaDetalleProyectos.vue')
-  }
 ]
 
 const router = createRouter({

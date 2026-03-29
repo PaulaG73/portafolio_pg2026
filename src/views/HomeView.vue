@@ -21,6 +21,7 @@
         :items-to-show="1"
         :breakpoints="carouselBreakpoints"
         :wrap-around="true"
+        :initial-slide="0"
         :transition="400"
         snap-align="center"
       >
@@ -45,7 +46,9 @@
       </Carousel>
     </div>
   </section>
-
+  <section class="home-section py-4 py-md-5">
+    <h3 class="mb-4 fw-bold">Proyectos</h3>
+  </section>
   <FooterComponent />
 
 </template>
@@ -71,7 +74,7 @@ const habilidades = [
 ]
 
 const carouselBreakpoints = {
-  768: { itemsToShow: 3, snapAlign: 'center' },
+  768: { itemsToShow: 4, snapAlign: 'start' },
 }
 
 </script>
