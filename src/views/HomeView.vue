@@ -12,7 +12,7 @@
         <p class="mb-2"><span class="highlight"> y Desarrolladora Front End</span>, por convicción.</p>
         <p class="mb-2">Soy <span class="highlight">chilena</span> y vivo en <span class="highlight">Santiago</span>.</p>
         <p class="mb-2">Me gusta el <span class="highlight">vino</span>, los <span class="highlight">animales</span>, la <span class="highlight">música</span> y la <span class="highlight">tecnología</span>...</p>
-        <p class="mb-0 frase-final">...no necesariamente en ese orden.</p>
+        <p class="mb-0 frase-final"><strong>...no necesariamente en ese orden.</strong></p>
       </div>
     </div>
     <div class="container text-end mt-3">
@@ -127,7 +127,7 @@ const proyectos = [
     image: 'https://picsum.photos/seed/vino/600/400',
     tags: ['HTML', 'CSS', 'JavaScript', 'Bootstrap'],
     githubUrl: '#',
-    netlifyUrl: '#',
+    netlifyUrl: null,
   },
   {
     title: 'API Clima',

@@ -15,7 +15,7 @@
       <a :href="githubUrl" target="_blank" rel="noopener noreferrer" class="card-link" title="Ver en GitHub" aria-label="Ver en GitHub">
         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" width="28" height="28" alt="Ver en GitHub">
       </a>
-      <a :href="netlifyUrl" target="_blank" rel="noopener noreferrer" class="card-link" title="Ver en Netlify" aria-label="Ver en Netlify">
+      <a v-if="netlifyUrl" :href="netlifyUrl" target="_blank" rel="noopener noreferrer" class="card-link" title="Ver en Netlify" aria-label="Ver en Netlify">
         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/netlify/netlify-original.svg" width="28" height="28" alt="Ver en Netlify">
       </a>
     </div>
@@ -46,7 +46,7 @@ defineProps({
   },
   netlifyUrl: {
     type: String,
-    default: '#',
+    default: null,
   },
 })
 </script>
