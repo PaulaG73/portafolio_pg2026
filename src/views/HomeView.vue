@@ -1,19 +1,30 @@
 <template>
   <NavBar />
 
-  <section class="home-section py-4 py-md-5">
+  <section id="sobre-mi" class="home-section py-4 py-md-5">
     <h3 class="mb-4 fw-bold">Sobre mí</h3>
     <div class="container sobre-mi d-flex flex-column flex-md-row align-items-center justify-content-center gap-4">
       <div class="sobre-mi-foto">
         <img src="/IMG_4018.jpg" alt="Paula">
       </div>
       <div class="sobre-mi-texto">
-        <p class="mb-0">Mi nombre es Paula, Agrónoma de profesión y Desarrolladora Front End, por convicción. Soy chilena y vivo en Santiago. Me gusta el vino, los animales, la música y la tecnología...no necesariamente en ese orden.</p>
+        <p class="mb-2">Mi nombre es Paula, <span class="highlight">Agrónoma</span> de profesión.</p>
+        <p class="mb-2"><span class="highlight"> y Desarrolladora Front End</span>, por convicción.</p>
+        <p class="mb-2">Soy <span class="highlight">chilena</span> y vivo en <span class="highlight">Santiago</span>.</p>
+        <p class="mb-2">Me gusta el <span class="highlight">vino</span>, los <span class="highlight">animales</span>, la <span class="highlight">música</span> y la <span class="highlight">tecnología</span>...</p>
+        <p class="mb-0 frase-final">...no necesariamente en ese orden.</p>
       </div>
+    </div>
+    <div class="container text-end mt-3">
+      <a href="#" class="btn btn-sm btn-outline-success rounded-circle p-1 btn-top" title="Volver al inicio" aria-label="Volver al inicio">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
+          <path d="M8 12a.5.5 0 0 0 .5-.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 0 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 .5.5z"/>
+        </svg>
+      </a>
     </div>
   </section>
 
-  <section class="home-section py-4 py-md-5 mb-4 mb-md-5">
+  <section id="habilidades" class="home-section py-4 py-md-5">
     <h3 class="mb-4 fw-bold">Habilidades/Conocimientos</h3>
 
     <div class="container">
@@ -45,11 +56,41 @@
         </template>
       </Carousel>
     </div>
+    <div class="container text-end mt-3">
+      <a href="#" class="btn btn-sm btn-outline-success rounded-circle p-1 btn-top" title="Volver al inicio" aria-label="Volver al inicio">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
+          <path d="M8 12a.5.5 0 0 0 .5-.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 0 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 .5.5z"/>
+        </svg>
+      </a>
+    </div>
   </section>
-  <section class="home-section py-4 py-md-5">
+  <section id="proyectos" class="home-section py-4 py-md-5">
     <h3 class="mb-4 fw-bold">Proyectos</h3>
+    <div class="container">
+      <div class="row g-3 justify-content-center">
+        <div v-for="proyecto in proyectos" :key="proyecto.title" class="col-10 col-sm-6 col-md-4">
+          <CardComponent
+            :title="proyecto.title"
+            :description="proyecto.description"
+            :image="proyecto.image"
+            :tags="proyecto.tags"
+            :github-url="proyecto.githubUrl"
+            :netlify-url="proyecto.netlifyUrl"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="container text-end mt-3">
+      <a href="#" class="btn btn-sm btn-outline-success rounded-circle p-1 btn-top" title="Volver al inicio" aria-label="Volver al inicio">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
+          <path d="M8 12a.5.5 0 0 0 .5-.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 0 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 .5.5z"/>
+        </svg>
+      </a>
+    </div>
   </section>
-  <FooterComponent />
+  <div id="contacto">
+    <FooterComponent />
+  </div>
 
 </template>
 
@@ -57,6 +98,7 @@
 
 import NavBar from '../components/NavBar'
 import FooterComponent from '../components/FooterComponent.vue'
+import CardComponent from '../components/CardComponent.vue'
 import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
 import 'vue3-carousel/dist/carousel.css'
 
@@ -74,17 +116,62 @@ const habilidades = [
 ]
 
 const carouselBreakpoints = {
+  480: { itemsToShow: 2, snapAlign: 'start' },
   768: { itemsToShow: 4, snapAlign: 'start' },
 }
+
+const proyectos = [
+  {
+    title: 'Catálogo Vinóloga',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    image: 'https://picsum.photos/seed/vino/600/400',
+    tags: ['HTML', 'CSS', 'JavaScript', 'Bootstrap'],
+    githubUrl: '#',
+    netlifyUrl: '#',
+  },
+  {
+    title: 'API Clima',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    image: 'https://picsum.photos/seed/clima/600/400',
+    tags: ['HTML', 'CSS', 'Vue', 'Bootstrap', 'Firebase'],
+    githubUrl: '#',
+    netlifyUrl: '#',
+  },
+]
 
 </script>
 
 <style scoped>
+.home-section {
+  background-color: #e4f5ec;
+}
+
 .home-divider {
   max-width: min(100%, 960px);
   margin-left: auto;
   margin-right: auto;
   opacity: 0.35;
+}
+
+.home-section h3 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(1.3rem, 4vw, 1.9rem);
+  letter-spacing: 0.02em;
+  display: inline-block;
+  position: relative;
+  padding-bottom: 0.35rem;
+}
+
+.home-section h3::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 3px;
+  background-color: #198754;
+  border-radius: 2px;
 }
 
 .sobre-mi-foto {
@@ -116,6 +203,25 @@ const carouselBreakpoints = {
   min-width: 0;
   max-width: min(100%, 40rem);
   text-align: justify;
+  line-height: 1.9;
+  font-size: clamp(0.9rem, 2.5vw, 1rem);
+}
+
+.highlight {
+  color: #198754;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.frase-final {
+  font-style: italic;
+  animation: colorPulse 3s ease-in-out infinite;
+}
+
+@keyframes colorPulse {
+  0%   { color: #2c3e50; }
+  50%  { color: #198754; }
+  100% { color: #2c3e50; }
 }
 
 .habilidad-slide {
@@ -142,5 +248,14 @@ const carouselBreakpoints = {
 
 :deep(.carousel__dot--active) {
   background-color: #198754;
+}
+
+.btn-top {
+  width: 2rem;
+  height: 2rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
 }
 </style>

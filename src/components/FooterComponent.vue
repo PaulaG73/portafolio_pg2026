@@ -1,12 +1,12 @@
 <template>
-  <footer class="footer py-4 mt-auto">
-    <div class="container d-flex align-items-center">
+  <footer class="footer py-2 py-md-4 mt-auto bg-success">
+    <div class="container d-flex align-items-center flex-wrap gap-2">
 
       <!-- Botón volver al inicio (izquierda, ancho fijo) -->
       <div class="footer-side">
         <button
           type="button"
-          class="btn btn-dark rounded-circle p-2 footer-action-btn shadow-sm"
+          class="btn btn-dark rounded-circle p-3 footer-action-btn shadow-sm"
           aria-label="Volver al inicio"
           title="Volver al inicio"
           @click="irAlInicio"
@@ -14,8 +14,8 @@
           <svg
             class="footer-action-icon"
             xmlns="http://www.w3.org/2000/svg"
-            width="18"
-            height="18"
+            width="32"
+            height="32"
             fill="currentColor"
             viewBox="0 0 16 16"
             aria-hidden="true"
@@ -33,7 +33,7 @@
 
           <!-- WhatsApp -->
           <a
-            class="btn btn-success rounded-circle p-2 footer-action-btn shadow-sm"
+            class="btn btn-success rounded-circle p-2 footer-action-btn shadow-sm border border-white border-2"
             :href="whatsappUrl"
             target="_blank"
             rel="noopener noreferrer"
@@ -124,9 +124,11 @@ async function irAlInicio() {
 </script>
 
 <style scoped>
+.footer {
+  color: #fff;
+}
+
 .footer-action-btn {
-  width: 2rem;
-  height: 2rem;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -139,10 +141,17 @@ async function irAlInicio() {
 
 .footer-copy {
   font-size: 0.85rem;
+  text-align: center;
 }
 
 .footer-side {
   width: 2rem;
   flex-shrink: 0;
+}
+
+@media (max-width: 400px) {
+  .footer-side:last-child {
+    display: none;
+  }
 }
 </style>
