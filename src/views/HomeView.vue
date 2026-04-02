@@ -108,7 +108,7 @@ const habilidades = [
   { name: 'JavaScript',        icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg' },
   { name: 'SASS',              icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/sass/sass-original.svg' },
   { name: 'Bootstrap',         icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original.svg' },
-  { name: 'Vue',icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vuejs/vuejs-original.svg' },
+  { name: 'Vue', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vuejs/vuejs-original.svg' },
   { name: 'Firebase',          icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/firebase/firebase-plain.svg' },
   { name: 'GitHub',            icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg' },
   { name: 'Netlify',           icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/netlify/netlify-original.svg' },
@@ -122,7 +122,7 @@ const carouselBreakpoints = {
 
 const proyectos = [
   {
-    title: 'Catálogo Vinóloga',
+    title: 'Catálogo Vinos Semana Santa',
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
     image: 'https://picsum.photos/seed/vino/600/400',
     tags: ['HTML', 'CSS', 'JavaScript', 'Bootstrap'],
@@ -130,11 +130,11 @@ const proyectos = [
     netlifyUrl: null,
   },
   {
-    title: 'API Clima',
+    title: 'Playas soñadas de América',
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
     image: 'https://picsum.photos/seed/clima/600/400',
     tags: ['HTML', 'CSS', 'Vue', 'Bootstrap', 'Firebase'],
-    githubUrl: '#',
+    githubUrl: 'https://github.com/PaulaG73/ej_portafolio_m8',
     netlifyUrl: '#',
   },
 ]
