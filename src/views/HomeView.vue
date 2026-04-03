@@ -1,97 +1,100 @@
 <template>
-  <NavBar />
+  <div class="home-view">
+    <NavBar />
 
-  <section id="sobre-mi" class="home-section py-4 py-md-5">
-    <h3 class="mb-4 fw-bold">Sobre mí</h3>
-    <div class="container sobre-mi d-flex flex-column flex-md-row align-items-center justify-content-center gap-4">
-      <div class="sobre-mi-foto">
-        <img src="/IMG_4018.jpg" alt="Paula">
-      </div>
-      <div class="sobre-mi-texto">
-        <p class="mb-2">Mi nombre es Paula, <span class="highlight">Agrónoma</span> de profesión.</p>
-        <p class="mb-2"><span class="highlight"> y Desarrolladora Front End</span>, por convicción.</p>
-        <p class="mb-2">Soy <span class="highlight">chilena</span> y vivo en <span class="highlight">Santiago</span>.</p>
-        <p class="mb-2">Me gusta el <span class="highlight">vino</span>, los <span class="highlight">animales</span>, la <span class="highlight">música</span> y la <span class="highlight">tecnología</span>...</p>
-        <p class="mb-0 frase-final"><strong>...no necesariamente en ese orden.</strong></p>
-      </div>
-    </div>
-    <div class="container text-end mt-3">
-      <a href="#" class="btn btn-sm btn-outline-success rounded-circle p-1 btn-top" title="Volver al inicio" aria-label="Volver al inicio">
-        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
-          <path d="M8 12a.5.5 0 0 0 .5-.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 0 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 .5.5z"/>
-        </svg>
-      </a>
-    </div>
-  </section>
-
-  <section id="habilidades" class="home-section py-4 py-md-5">
-    <h3 class="mb-4 fw-bold">Habilidades/Conocimientos</h3>
-
-    <div class="container">
-      <Carousel
-        :items-to-show="1"
-        :breakpoints="carouselBreakpoints"
-        :wrap-around="true"
-        :initial-slide="0"
-        :transition="400"
-        snap-align="center"
-      >
-        <Slide v-for="h in habilidades" :key="h.name">
-          <div class="habilidad-slide d-flex flex-column align-items-center gap-2 py-3 px-2">
-            <img
-              :src="h.icon"
-              :alt="h.name"
-              class="habilidad-icon"
-              width="48"
-              height="48"
-              loading="lazy"
-            >
-            <span class="small fw-semibold">{{ h.name }}</span>
+    <main class="home-main">
+      <section id="sobre-mi" class="home-section py-4 py-md-5">
+        <h3 class="mb-4 fw-bold">Sobre mí</h3>
+        <div class="container sobre-mi d-flex flex-column flex-md-row align-items-center justify-content-center gap-4">
+          <div class="sobre-mi-foto">
+            <img src="/IMG_4018.jpg" alt="Paula">
           </div>
-        </Slide>
-
-        <template #addons>
-          <Navigation />
-          <Pagination />
-        </template>
-      </Carousel>
-    </div>
-    <div class="container text-end mt-3">
-      <a href="#" class="btn btn-sm btn-outline-success rounded-circle p-1 btn-top" title="Volver al inicio" aria-label="Volver al inicio">
-        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
-          <path d="M8 12a.5.5 0 0 0 .5-.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 0 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 .5.5z"/>
-        </svg>
-      </a>
-    </div>
-  </section>
-  <section id="proyectos" class="home-section py-4 py-md-5">
-    <h3 class="mb-4 fw-bold">Proyectos</h3>
-    <div class="container">
-      <div class="row g-3 justify-content-center">
-        <div v-for="proyecto in proyectos" :key="proyecto.title" class="col-10 col-sm-6 col-md-4">
-          <CardComponent
-            :title="proyecto.title"
-            :description="proyecto.description"
-            :image="proyecto.image"
-            :tags="proyecto.tags"
-            :github-url="proyecto.githubUrl"
-            :netlify-url="proyecto.netlifyUrl"
-          />
+          <div class="sobre-mi-texto">
+            <p class="mb-2">Mi nombre es Paula, <span class="highlight">Agrónoma</span> de profesión.</p>
+            <p class="mb-2"><span class="highlight"> y Desarrolladora Front End</span>, por convicción.</p>
+            <p class="mb-2">Soy <span class="highlight">chilena</span> y vivo en <span class="highlight">Santiago</span>.</p>
+            <p class="mb-2">Me gusta el <span class="highlight">vino</span>, los <span class="highlight">animales</span>, la <span class="highlight">música</span> y la <span class="highlight">tecnología</span>...</p>
+            <p class="mb-0 frase-final"><strong>...no necesariamente en ese orden.</strong></p>
+          </div>
         </div>
-      </div>
-    </div>
-    <div class="container text-end mt-3">
-      <a href="#" class="btn btn-sm btn-outline-success rounded-circle p-1 btn-top" title="Volver al inicio" aria-label="Volver al inicio">
-        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
-          <path d="M8 12a.5.5 0 0 0 .5-.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 0 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 .5.5z"/>
-        </svg>
-      </a>
-    </div>
-  </section>
-  <div id="contacto">
-    <FooterComponent />
-  </div>
+        <div class="container text-end mt-3">
+          <a href="#" class="btn btn-sm btn-outline-success rounded-circle p-1 btn-top" title="Volver al inicio" aria-label="Volver al inicio">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
+              <path d="M8 12a.5.5 0 0 0 .5-.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 0 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 .5.5z"/>
+            </svg>
+          </a>
+        </div>
+      </section>
 
+      <section id="habilidades" class="home-section py-4 py-md-5">
+        <h3 class="mb-4 fw-bold">Habilidades/Conocimientos</h3>
+
+        <div class="container">
+          <Carousel
+            :items-to-show="1"
+            :breakpoints="carouselBreakpoints"
+            :wrap-around="true"
+            :initial-slide="0"
+            :transition="400"
+            snap-align="center"
+          >
+            <Slide v-for="h in habilidades" :key="h.name">
+              <div class="habilidad-slide d-flex flex-column align-items-center gap-2 py-3 px-2">
+                <img
+                  :src="h.icon"
+                  :alt="h.name"
+                  class="habilidad-icon"
+                  width="48"
+                  height="48"
+                  loading="lazy"
+                >
+                <span class="small fw-semibold">{{ h.name }}</span>
+              </div>
+            </Slide>
+
+            <template #addons>
+              <Navigation />
+              <Pagination />
+            </template>
+          </Carousel>
+        </div>
+        <div class="container text-end mt-3">
+          <a href="#" class="btn btn-sm btn-outline-success rounded-circle p-1 btn-top" title="Volver al inicio" aria-label="Volver al inicio">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
+              <path d="M8 12a.5.5 0 0 0 .5-.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 0 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 .5.5z"/>
+            </svg>
+          </a>
+        </div>
+      </section>
+      <section id="proyectos" class="home-section py-4 py-md-5">
+        <h3 class="mb-4 fw-bold">Proyectos</h3>
+        <div class="container">
+          <div class="row g-3 justify-content-center">
+            <div v-for="proyecto in proyectos" :key="proyecto.title" class="col-10 col-sm-6 col-md-4">
+              <CardComponent
+                :title="proyecto.title"
+                :description="proyecto.description"
+                :image="proyecto.image"
+                :tags="proyecto.tags"
+                :github-url="proyecto.githubUrl"
+                :netlify-url="proyecto.netlifyUrl"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="container text-end mt-3">
+          <a href="#" class="btn btn-sm btn-outline-success rounded-circle p-1 btn-top" title="Volver al inicio" aria-label="Volver al inicio">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
+              <path d="M8 12a.5.5 0 0 0 .5-.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 0 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 .5.5z"/>
+            </svg>
+          </a>
+        </div>
+      </section>
+      <div id="contacto">
+        <FooterComponent />
+      </div>
+    </main>
+  </div>
 </template>
 
 <script setup>
@@ -126,8 +129,8 @@ const proyectos = [
     description: 'SPA en Vue 3 que muestra oferta de packs de vinos para Semana Santa: Presentación de marca, carrusel de tarjetas con datos desde JSON y pie de página con direccionamiento a whatsapp..',
     image: '/Vinóloga IA.jpg',
     tags: ['HTML', 'JavaScript', 'Vue', 'Bootstrap'],
-    githubUrl: '#',
-    netlifyUrl: null,
+    githubUrl: 'https://github.com/PaulaG73/catalogo_vinos',
+    netlifyUrl: 'https://catalogovinos.netlify.app',
   },
   {
     title: 'Playas soñadas de América',
@@ -135,13 +138,36 @@ const proyectos = [
     image: '/Florianópolis_Brasil2.jpg',
     tags: ['HTML', 'CSS', 'JavaScript','Vue', 'Bootstrap', 'Firebase'],
     githubUrl: 'https://github.com/PaulaG73/ej_portafolio_m8',
-    netlifyUrl: '#',
+    netlifyUrl: 'https://portafoliom8.netlify.app',
   },
 ]
 
 </script>
 
 <style scoped>
+/* Contenido empieza bajo la barra fija; anclas respetan la altura del nav */
+.home-main {
+  padding-top: 5.5rem;
+}
+
+@media (min-width: 992px) {
+  .home-main {
+    padding-top: 6rem;
+  }
+}
+
+.home-section,
+#contacto {
+  scroll-margin-top: 5.5rem;
+}
+
+@media (min-width: 992px) {
+  .home-section,
+  #contacto {
+    scroll-margin-top: 6rem;
+  }
+}
+
 .home-section {
   background-color: #e4f5ec;
 }
