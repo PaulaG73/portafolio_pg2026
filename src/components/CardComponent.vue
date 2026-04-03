@@ -1,9 +1,11 @@
 <template>
-  <div class="card shadow-sm border-success">
+  <div class="card shadow-sm border-success h-100 d-flex flex-column rounded-4">
     <img :src="image" class="card-img-top" :alt="title">
-    <div class="card-body">
+    <div class="card-body flex-grow-1">
       <h5 class="card-title fw-bold">{{ title }}</h5>
       <p class="card-text">{{ description }}</p>
+    </div>
+    <div class="px-3 pb-2 card-tags-wrapper">
       <p class="card-tags mb-0">
         <template v-for="(tag, index) in tags" :key="tag">
           <span v-if="index > 0" class="tag-dot">•</span>{{ tag }}
@@ -53,12 +55,23 @@ defineProps({
 
 <style scoped>
 .card-img-top {
-  height: 110px;
+  height: 160px;
   object-fit: cover;
+  border-radius: calc(var(--bs-border-radius-xl) - 1px) calc(var(--bs-border-radius-xl) - 1px) 0 0;
+}
+
+.card-text {
+  font-size: 0.82rem;
+  min-height: 5.5rem;
 }
 
 .card-title {
   font-family: 'Playfair Display', Georgia, serif;
+  font-size: 0.95rem;
+}
+
+.card-tags-wrapper {
+  min-height: 2.8rem;
 }
 
 .card-tags {

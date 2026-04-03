@@ -123,17 +123,17 @@ const carouselBreakpoints = {
 const proyectos = [
   {
     title: 'Catálogo Vinos Semana Santa',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    image: 'https://picsum.photos/seed/vino/600/400',
-    tags: ['HTML', 'CSS', 'JavaScript', 'Bootstrap'],
+    description: 'SPA en Vue 3 que muestra oferta de packs de vinos para Semana Santa: Presentación de marca, carrusel de tarjetas con datos desde JSON y pie de página con direccionamiento a whatsapp..',
+    image: '/Vinóloga IA.jpg',
+    tags: ['HTML', 'JavaScript', 'Vue', 'Bootstrap'],
     githubUrl: '#',
     netlifyUrl: null,
   },
   {
     title: 'Playas soñadas de América',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    image: 'https://picsum.photos/seed/clima/600/400',
-    tags: ['HTML', 'CSS', 'Vue', 'Bootstrap', 'Firebase'],
+    description: 'SPA con playas de América, clima en vivo (Open-Meteo + Axios), Firebase Auth (registro, login, recuperación de contraseña) y favoritos en Cloud Firestore.',
+    image: '/Florianópolis_Brasil2.jpg',
+    tags: ['HTML', 'CSS', 'JavaScript','Vue', 'Bootstrap', 'Firebase'],
     githubUrl: 'https://github.com/PaulaG73/ej_portafolio_m8',
     netlifyUrl: '#',
   },
@@ -155,7 +155,7 @@ const proyectos = [
 
 .home-section h3 {
   font-family: 'Playfair Display', Georgia, serif;
-  font-size: clamp(1.3rem, 4vw, 1.9rem);
+  font-size: clamp(1.1rem, 3.5vw, 1.5rem);
   letter-spacing: 0.02em;
   display: inline-block;
   position: relative;
